@@ -1,4 +1,4 @@
-# Microrealestate
+# Alcove REMS
 
 Here is a diagram showcasing the microservices on the backend and the two frontend applications:
 
@@ -29,8 +29,8 @@ Here is a diagram showcasing the microservices on the backend and the two fronte
 #### Clone the GitHub repository
 
 ```shell
-git clone https://github.com/microrealestate/microrealestate.git
-cd microrealestate
+git clone https://github.com/alcoverems/alcoverems.git
+cd alcoverems
 ```
 
 #### Install de application dependencies

@@ -1,7 +1,7 @@
 {
-  "name": "@microrealestate/cli",
+  "name": "@alcoverems/cli",
   "version": "1.0.0",
-  "description": "The MicroRealEstate CLI",
+  "description": "The Alcove REMS CLI",
   "main": "src/index.js",
   "private": true,
   "scripts": {

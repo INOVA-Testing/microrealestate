@@ -1,8 +1,8 @@
-# MicroRealEstate
+# Alcove REMS
 
-[![Continuous Integration](https://github.com/microrealestate/microrealestate/actions/workflows/ci.yml/badge.svg?event=push)](https://github.com/microrealestate/microrealestate/actions/workflows/ci.yml)
+[![Continuous Integration](https://github.com/alcoverems/alcoverems/actions/workflows/ci.yml/badge.svg?event=push)](https://github.com/alcoverems/alcoverems/actions/workflows/ci.yml)
 
-MicroRealEstate is an open-source application designed to assist landlords in managing their properties and rentals. MicroRealEstate (MRE) serves as a centralized platform for landlords to streamline their property management tasks.
+Alcove REMS is an open-source application designed to assist landlords in managing their properties and rentals. Alcove REMS (MRE) serves as a centralized platform for landlords to streamline their property management tasks.
 
 ## Key Features
 
@@ -42,8 +42,8 @@ MicroRealEstate is an open-source application designed to assist landlords in ma
 ``` shell
 mkdir mre
 cd mre
-curl https://raw.githubusercontent.com/microrealestate/microrealestate/master/docker-compose.yml > docker-compose.yml
-curl https://raw.githubusercontent.com/microrealestate/microrealestate/master/.env.domain > .env
+curl https://raw.githubusercontent.com/alcoverems/alcoverems/master/docker-compose.yml > docker-compose.yml
+curl https://raw.githubusercontent.com/alcoverems/alcoverems/master/.env.domain > .env
 ```
 
 Update the secrets and tokens in the `.env` file (at the end of the file).
@@ -127,7 +127,7 @@ To run the application in development mode, follow the steps outlined in the doc
 
 ## Donate
 
-Thank you for your interest in supporting MicroRealEstate.
+Thank you for your interest in supporting Alcove REMS.
 Every contribution will help us pay our ongoing maintenance and development costs 🙏
 
 [![Donate](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub)](https://github.com/sponsors/camelaissani)

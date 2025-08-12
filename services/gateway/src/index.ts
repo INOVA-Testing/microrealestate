@@ -6,7 +6,7 @@ import {
   Service,
   ServiceError,
   URLUtils
-} from '@microrealestate/common';
+} from '@alcoverems/common';
 import axios from 'axios';
 import cors from 'cors';
 import { createProxyMiddleware } from 'http-proxy-middleware';

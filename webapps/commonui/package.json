@@ -1,7 +1,7 @@
 {
-  "name": "@microrealestate/commonui",
+  "name": "@alcoverems/commonui",
   "version": "1.0.0",
-  "description": "Common modules required for the MicroRealEstate application'",
+  "description": "Common modules required for the Alcove REMS application'",
   "author": "Camel Aissani",
   "license": "MIT",
   "private": true,
