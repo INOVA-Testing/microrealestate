@@ -22,7 +22,7 @@ export async function ContractCard({ lease }: { lease: Lease }) {
   const formatNumber = getFormatNumber(locale, lease.landlord.currency);
 
   return (
-    <Card className="sm:p-6">
+    <Card className="glassmorphism sm:p-6">
       <CardHeader>
         <CardTitle>
           <div className="flex flex-col items-center sm:flex-row sm:justify-between">

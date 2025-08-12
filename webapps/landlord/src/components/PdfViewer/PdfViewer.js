@@ -49,7 +49,7 @@ export default function PdfViewer({ open, setOpen, pdfDoc }) {
             <div className="text-base md:text-xl font-semibold">
               {pdfDoc.title}
             </div>
-            <div className="flex flex-grow justify-end gap-4">
+            <div className="flex grow justify-end gap-4">
               <Print>
                 {(props) => (
                   <Button variant="secondary" onClick={props.onClick}>

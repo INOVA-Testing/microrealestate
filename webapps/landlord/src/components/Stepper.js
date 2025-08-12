@@ -26,7 +26,7 @@ export function Step({
 
         <div
           className={cn(
-            'flex-grow w-[1px] mt-1',
+            'grow w-px mt-1',
             !isLast || !isDone ? 'border-r' : ''
           )}
         />

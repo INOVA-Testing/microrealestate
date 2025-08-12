@@ -27,7 +27,7 @@ export function DateField({ disabled, ...props }) {
       <Popover open={open} onOpenChange={setOpen} modal>
         <PopoverTrigger asChild>
           <Button
-            variant={'outline'}
+            variant={'outline-solid'}
             className={cn(
               'flex font-normal',
               !field.value && 'text-muted-foreground',
@@ -37,7 +37,7 @@ export function DateField({ disabled, ...props }) {
             )}
             disabled={disabled || isSubmitting}
           >
-            <div className="flex-grow text-left">
+            <div className="grow text-left">
               {field.value ? moment(field.value).format('L') : ''}
             </div>
             <LuCalendar className="size-4" />

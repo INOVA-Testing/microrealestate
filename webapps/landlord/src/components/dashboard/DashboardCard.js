@@ -19,14 +19,14 @@ export function DashboardCard({
   className
 }) {
   return (
-    <Card className={cn('flex flex-col justify-center', className)}>
+    <Card className={cn('glassmorphism flex flex-col justify-center', className)}>
       <CardHeader>
         <CardTitle className="flex items-center justify-between font-normal text-xs xl:text-base">
           {title}
           {Icon ? <Icon className="size-6 text-muted-foreground" /> : null}
         </CardTitle>
       </CardHeader>
-      <CardContent className="flex-grow flex justify-between items-center text-3xl xl:text-4xl font-medium space-x-2">
+      <CardContent className="grow flex justify-between items-center text-3xl xl:text-4xl font-medium space-x-2">
         <div className="w-full h-full">{renderContent?.()}</div>
         {onClick ? (
           <Button variant="link" className="p-0 m-0 h-fit" onClick={onClick}>

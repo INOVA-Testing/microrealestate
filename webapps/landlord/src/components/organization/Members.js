@@ -137,7 +137,7 @@ export default function Members({ organization }) {
                     onValueChange={(value) => onRoleChange(value, member)}
                     disabled={isActionDisabled}
                   >
-                    <SelectTrigger className="flex-grow">
+                    <SelectTrigger className="grow">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -203,7 +203,7 @@ export default function Members({ organization }) {
               </div>
 
               <div className="flex gap-2 items-center">
-                <div className="flex-grow">{t(app.role)}</div>
+                <div className="grow">{t(app.role)}</div>
                 <Button
                   variant="ghost"
                   onClick={() => {

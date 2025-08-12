@@ -13,9 +13,9 @@ export default async function SignInLayout({
 
   return (
     <>
-      <EnvironmentBar className="bg-card shadow sticky top-0 z-40 w-full" />
+      <EnvironmentBar className="bg-card shadow-sm sticky top-0 z-40 w-full" />
       <div className="flex h-screen">
-        <div className="hidden lg:flex flex-col items-center justify-center space-y-20 text-center font-medium bg-sky-900 text-white/95 w-[36rem]">
+        <div className="hidden lg:flex flex-col items-center justify-center space-y-20 text-center font-medium bg-sky-900 text-white/95 w-xl">
           <div className="space-y-2">
             <div className="text-5xl">{getServerEnv('APP_NAME')}</div>
             <div>{t('for tenants')}</div>

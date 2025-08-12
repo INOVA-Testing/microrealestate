@@ -175,7 +175,7 @@ export function HamburgerMenu({ className, onChange }) {
             <SheetDescription>{config.APP_NAME}</SheetDescription>
           </SheetHeader>
           <Separator className="bg-secondary-foreground/25 flex-col" />
-          <div className="flex-grow overflow-auto">
+          <div className="grow overflow-auto">
             {menuItems
               .filter((menuItem) => !menuItem.hidden)
               .map((item) => {
@@ -196,7 +196,7 @@ export function HamburgerMenu({ className, onChange }) {
         </SheetContent>
       </Sheet>
       {selectedMenu ? (
-        <span className="text-base flex-grow">{t(selectedMenu.labelId)}</span>
+        <span className="text-base grow">{t(selectedMenu.labelId)}</span>
       ) : null}
     </div>
   );
@@ -253,7 +253,7 @@ export function SideMenu({ className }) {
       </div>
       <div className="text-muted-foreground px-4 mt-2">{config.APP_NAME}</div>
       <Separator className="bg-secondary-foreground/25 my-4" />
-      <div className="flex-grow overflow-auto">
+      <div className="grow overflow-auto">
         {menuItems
           .filter((menuItem) => !menuItem.hidden)
           .map((item) => {

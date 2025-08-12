@@ -26,7 +26,7 @@ export function TextField({ disabled, showHidePassword = true, ...props }) {
       <div className="flex">
         <Input
           className={cn(
-            'flex-grow [&:not(:last-child)]:mr-2',
+            'grow not-last:mr-2',
             hasError
               ? 'border-destructive border-2 focus:ring-0 focus:ring-offset-0'
               : ''

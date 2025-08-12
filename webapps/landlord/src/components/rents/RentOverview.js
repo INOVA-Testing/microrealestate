@@ -51,7 +51,7 @@ export function RentOverview({ data }) {
           <NumberFormat
             value={data.totalNotPaid}
             debitColor={true}
-            className="flex-grow"
+            className="grow"
           />
         )}
         className="hidden sm:block 2xl:col-span-3 text-end"
@@ -67,7 +67,7 @@ export function RentOverview({ data }) {
             value={data.totalPaid}
             creditColor={true}
             showZero={true}
-            className="flex-grow"
+            className="grow"
           />
         )}
         className="hidden sm:block 2xl:col-span-3 text-end"

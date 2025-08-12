@@ -34,7 +34,7 @@ export default async function ContactCard({
       street1 || street2 || zipCode || city || state || country
   );
   return (
-    <div className="flex flex-col gap-4">
+    <div className="glassmorphism flex flex-col gap-4 rounded-lg p-4">
       <div className="text-xl font-semibold">
         {contactInfo.name}{' '}
         <span className="text-xs text-muted-foreground uppercase font-semibold">

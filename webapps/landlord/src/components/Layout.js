@@ -15,19 +15,19 @@ export default function Layout({ hideMenu, children }) {
     <>
       {hideMenu ? (
         <>
-          <div className="sticky top-0 z-50 shadow">
+          <div className="sticky top-0 z-50 shadow-sm">
             <EnvironmentBar />
           </div>
-          <div className={cn('flex-grow')}>{children}</div>
+          <div className={cn('grow')}>{children}</div>
         </>
       ) : (
         <>
-          <div className="sticky top-0 z-50 shadow">
+          <div className="sticky top-0 z-50 shadow-sm">
             <EnvironmentBar />
             {store.user?.signedIn ? (
               <div className="flex items-center xl:justify-end bg-card w-full gap-2 py-1">
                 {!isXLorGreater ? (
-                  <HamburgerMenu className="flex flex-grow items-center" />
+                  <HamburgerMenu className="flex grow items-center" />
                 ) : null}
                 <OrganizationMenu />
               </div>
@@ -37,7 +37,7 @@ export default function Layout({ hideMenu, children }) {
             {store.user?.signedIn && isXLorGreater ? <SideMenu /> : null}
             <div
               className={cn(
-                'flex-grow',
+                'grow',
                 store.user?.signedIn ? 'xl:ml-60' : ''
               )}
             >

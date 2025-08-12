@@ -80,7 +80,7 @@ function MonthFigures({ className }) {
                           `/${store.organization.selected.name}/rents/${yearMonth}?search=${tenant.name}`
                         );
                       }}
-                      className="justify-start flex-grow p-0 m-0"
+                      className="justify-start grow p-0 m-0"
                     >
                       {tenant.name}
                     </Button>
