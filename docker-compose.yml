@@ -54,8 +54,8 @@ services:
       APP_DOMAIN: ${APP_DOMAIN:-localhost}${APP_PORT:+:}${APP_PORT}
       CORS_ENABLED: 'true'
       TENANTAPI_URL: http://tenantapi:8250/tenantapi
-    ports:
-      - '8080:8080'
+    #ports:
+    #  - '8080:8080'
     # healthcheck:
     #   test:
     #     [
