@@ -14,7 +14,7 @@ services:
         'sh',
         '-c',
         'docker-entrypoint.sh --requirepass ${REDIS_PASSWORD:-redis_password} --loglevel warning'
-      ] # Change password in production
+      ]
     networks:
       - net
   ###############################################################################
@@ -54,18 +54,8 @@ services:
       APP_DOMAIN: ${APP_DOMAIN:-localhost}${APP_PORT:+:}${APP_PORT}
       CORS_ENABLED: 'true'
       TENANTAPI_URL: http://tenantapi:8250/tenantapi
-    #ports:
-    #  - '8080:8080'
-    # healthcheck:
-    #   test:
-    #     [
-    #       'CMD-SHELL',
-    #       'wget --no-verbose --tries=1 --spider ${APP_PROTOCOL:-http}://${APP_DOMAIN:-localhost}${APP_PORT:+:}${APP_PORT}/health/noUI || exit 1'
-    #     ]
-    #   interval: 1s
-    #   timeout: 2s
-    #   retries: 20
-    #   start_period: 15s
+    expose:
+      - '8080'
     networks:
       - net
     depends_on:
@@ -90,15 +80,15 @@ services:
       PORT: 8000
       LOGGER_LEVEL: info
       REDIS_URL: redis://redis
-      REDIS_PASSWORD: ${REDIS_PASSWORD:-redis_password} # Change password in production
-      ACCESS_TOKEN_SECRET: ${ACCESS_TOKEN_SECRET:-access_token_secret} # Change secret in production
-      REFRESH_TOKEN_SECRET: ${REFRESH_TOKEN_SECRET:-refresh_token_secret} # Change secret in production
-      RESET_TOKEN_SECRET: ${RESET_TOKEN_SECRET:-reset_token_secret} # Change secret in production
-      APPCREDZ_TOKEN_SECRET: ${APPCREDZ_TOKEN_SECRET:-appcredz_token_secret} # Change secret in production
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-redis_password}
+      ACCESS_TOKEN_SECRET: ${ACCESS_TOKEN_SECRET:-access_token_secret}
+      REFRESH_TOKEN_SECRET: ${REFRESH_TOKEN_SECRET:-refresh_token_secret}
+      RESET_TOKEN_SECRET: ${RESET_TOKEN_SECRET:-reset_token_secret}
+      APPCREDZ_TOKEN_SECRET: ${APPCREDZ_TOKEN_SECRET:-appcredz_token_secret}
       MONGO_URL: ${MONGO_URL:-mongodb://mongo/mredb}
       EMAILER_URL: http://emailer:8400/emailer
       SIGNUP: 'true'
-      APP_DOMAIN: ${APP_DOMAIN:-localhost} # do not pass APP_PORT here
+      APP_DOMAIN: ${APP_DOMAIN:-localhost}
       APP_PROTOCOL: ${APP_PROTOCOL:-http}
     expose:
       - '8000'
@@ -122,10 +112,10 @@ services:
       PORT: 8300
       LOGGER_LEVEL: info
       MONGO_URL: ${MONGO_URL:-mongodb://mongo/mredb}
-      ACCESS_TOKEN_SECRET: ${ACCESS_TOKEN_SECRET:-access_token_secret} # Change secret in production
-      CIPHER_KEY: ${CIPHER_KEY:-cipher_key} # Change key in production
-      CIPHER_IV_KEY: ${CIPHER_IV_KEY:-cipher_iv_key} # Change key in production
-      UPLOAD_MAX_SIZE: 2000000000 # ~2Gb
+      ACCESS_TOKEN_SECRET: ${ACCESS_TOKEN_SECRET:-access_token_secret}
+      CIPHER_KEY: ${CIPHER_KEY:-cipher_key}
+      CIPHER_IV_KEY: ${CIPHER_IV_KEY:-cipher_iv_key}
+      UPLOAD_MAX_SIZE: 2000000000
     expose:
       - '8300'
     networks:
@@ -147,35 +137,21 @@ services:
       LANDLORD_APP_URL: ${APP_PROTOCOL:-http}://${APP_DOMAIN:-localhost}${APP_PORT:+:}${APP_PORT}/landlord
       TENANT_APP_URL: ${APP_PROTOCOL:-http}://${APP_DOMAIN:-localhost}${APP_PORT:+:}${APP_PORT}/tenant
       MONGO_URL: ${MONGO_URL:-mongodb://mongo/mredb}
-      ACCESS_TOKEN_SECRET: ${ACCESS_TOKEN_SECRET:-access_token_secret} # Change secret in production
-      CIPHER_KEY: ${CIPHER_KEY:-cipher_key} # Change key in production
-      CIPHER_IV_KEY: ${CIPHER_IV_KEY:-cipher_iv_key} # Change key in production
+      ACCESS_TOKEN_SECRET: ${ACCESS_TOKEN_SECRET:-access_token_secret}
+      CIPHER_KEY: ${CIPHER_KEY:-cipher_key}
+      CIPHER_IV_KEY: ${CIPHER_IV_KEY:-cipher_iv_key}
       PDFGENERATOR_URL: http://pdfgenerator:8300/pdfgenerator
       #########################################
-      # Email service configuration
-      # needed to reset landlord password
-      # needed to sign tenant in
-      #########################################
-      GMAIL_EMAIL: ${GMAIL_EMAIL}
-      GMAIL_APP_PASSWORD: ${GMAIL_APP_PASSWORD}
-      #########################################
-      # OR
-      #########################################
-      MAILGUN_API_KEY: ${MAILGUN_API_KEY}
-      MAILGUN_DOMAIN: ${MAILGUN_DOMAIN}
-      #########################################
-      # OR
+      # Email Configuration - SMTP Only
       #########################################
       SMTP_SERVER: ${SMTP_SERVER}
       SMTP_PORT: ${SMTP_PORT}
       SMTP_SECURE: ${SMTP_SECURE}
       SMTP_USERNAME: ${SMTP_USERNAME}
       SMTP_PASSWORD: ${SMTP_PASSWORD}
-      #########################################
       EMAIL_FROM: ${EMAIL_FROM}
       EMAIL_REPLY_TO: ${EMAIL_REPLY_TO}
       EMAIL_BCC: ${EMAIL_BCC}
-      #########################################
     expose:
       - '8400'
     networks:
@@ -186,7 +162,7 @@ services:
       pdfgenerator:
         condition: service_started
   ###############################################################################
-  # api
+  # API
   ###############################################################################
   api:
     restart: unless-stopped
@@ -201,9 +177,9 @@ services:
       EMAILER_URL: http://emailer:8400/emailer
       PDFGENERATOR_URL: http://pdfgenerator:8300/pdfgenerator
       RESTORE_DB: 'false'
-      ACCESS_TOKEN_SECRET: ${ACCESS_TOKEN_SECRET:-access_token_secret} # Change secret in production
-      CIPHER_KEY: ${CIPHER_KEY:-cipher_key} # Change key in production
-      CIPHER_IV_KEY: ${CIPHER_IV_KEY:-cipher_iv_key} # Change key in production
+      ACCESS_TOKEN_SECRET: ${ACCESS_TOKEN_SECRET:-access_token_secret}
+      CIPHER_KEY: ${CIPHER_KEY:-cipher_key}
+      CIPHER_IV_KEY: ${CIPHER_IV_KEY:-cipher_iv_key}
     expose:
       - '8200'
     networks:
@@ -216,7 +192,7 @@ services:
       pdfgenerator:
         condition: service_started
   ###############################################################################
-  # tenant api
+  # Tenant API
   ###############################################################################
   tenantapi:
     restart: unless-stopped
@@ -226,7 +202,7 @@ services:
       PORT: 8250
       LOGGER_LEVEL: info
       MONGO_URL: ${MONGO_URL:-mongodb://mongo/mredb}
-      ACCESS_TOKEN_SECRET: ${ACCESS_TOKEN_SECRET:-access_token_secret} # Change secret in production
+      ACCESS_TOKEN_SECRET: ${ACCESS_TOKEN_SECRET:-access_token_secret}
     expose:
       - '8250'
     networks:
@@ -235,7 +211,7 @@ services:
       mongo:
         condition: service_started
   ###############################################################################
-  # Landlord frontend
+  # Landlord Frontend
   ###############################################################################
   landlord-frontend:
     restart: unless-stopped
@@ -256,7 +232,7 @@ services:
       gateway:
         condition: service_started
   ###############################################################################
-  # Tenant frontend
+  # Tenant Frontend
   ###############################################################################
   tenant-frontend:
     restart: unless-stopped
@@ -276,7 +252,7 @@ services:
       gateway:
         condition: service_started
 ###############################################################################
-# microservices network
+# Microservices Network
 ###############################################################################
 networks:
   net:
